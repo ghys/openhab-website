@@ -16,6 +16,7 @@ before_install:
   - ruby --version
 install:
     - npm install -g vuepress
+    - npm install
 script:
     - npm run build
 cache:
