@@ -9,11 +9,11 @@ addons:
             - ubuntu-toolchain-r-test
         packages:
             - g++-4.8
-before_install:
-  # Check that default ruby changes after `rvm install` step
-  - ruby --version
-  - rvm install 2.5.7
-  - ruby --version
+# before_install:
+#   # Check that default ruby changes after `rvm install` step
+#   - ruby --version
+#   - rvm install 2.5.7
+#   - ruby --version
 install:
     - npm install -g vuepress
     - npm install
@@ -24,3 +24,13 @@ cache:
         - "node_modules"
 notifications:
     email: false
+deploy:
+    provider: pages
+    skip-cleanup: true
+    local_dir: vuepress
+    github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+    repo: openhab/openhab.github.io
+    keep-history: true
+    target-branch: master
+    on:
+        branch: master
