@@ -33,4 +33,6 @@ deploy:
     keep-history: true
     target-branch: master
     on:
-        branch: master
+        # branch: master
+      all_branches: true
+      condition: $TRAVIS_BRANCH =~ ^(master|travis)$
